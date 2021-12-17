@@ -10,7 +10,6 @@ onready var walking_right_sprite = $WalkingRightSprites
 onready var animationPlayer = $AnimationPlayer
 
 var motion = Vector2.ZERO
-var invincible = true
 var alive = true
 var side : int
 var score : int = 0
@@ -63,9 +62,6 @@ func _physics_process(_delta):
 
 
 func die():
-	if invincible:
-		return
-		
 	$AudioStreamPlayer_Died.play()
 	self.position = Vector2(-1000, -1000)
 	alive = false
@@ -76,7 +72,6 @@ func die():
 
 func _on_RespawnTimer_timeout():
 	alive = true
-	invincible = true
 	motion = Vector2()
 	main.set_player_start_pos(self)
 	$InvincibleTimer.start()

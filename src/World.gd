@@ -9,6 +9,9 @@ var winner : int
 var total_keys = 0
 
 func _ready():
+	if Globals.SHOW_FPS:
+		$Timer_FPS.start()
+		
 	for side in range(0, 4):
 		var score = find_node("Score_" + str(side))
 		score.visible = false
@@ -83,3 +86,14 @@ func key_collected(player : Player, key : Collectable):
 	self.add_child(fly)	
 	pass
 	
+
+
+func _on_Timer_FPS_timeout():
+	$Label_FPS.set_text("FPS: " + str(Engine.get_frames_per_second()))
+	pass
+
+
+func _on_Area2D_body_exited(body):
+	if body.is_in_group("players"):
+		body.die()
+	pass

@@ -13,7 +13,7 @@ namespace ReadImageFile
 
 			Bitmap img = new Bitmap("Splat.png");
 //			for (int j = 5; j < img.Height; j+=8)
-			for (int j = 7; j < img.Height; j+=8)
+			for (int j = 5; j < img.Height; j+=8)
 //			int j = 55;
 			{
 				StringBuilder str = new StringBuilder();
