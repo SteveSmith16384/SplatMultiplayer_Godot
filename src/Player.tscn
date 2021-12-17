@@ -1,0 +1,87 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Player.gd" type="Script" id=2]
+[ext_resource path="res://assets/mm_right.png" type="Texture" id=3]
+[ext_resource path="res://assets/mm_left.png" type="Texture" id=4]
+[ext_resource path="res://assets/sfx/sfx_deathscream_human1.wav" type="AudioStream" id=5]
+[ext_resource path="res://SetColourFromSide.tscn" type="PackedScene" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 5.51287, 15.4556 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "Run_Left"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("WalkingLeftSprites:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Run_Right"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("WalkingRightSprites:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[node name="Player" type="KinematicBody2D" groups=[
+"players",
+]]
+collision_layer = 2
+script = ExtResource( 2 )
+
+[node name="WalkingLeftSprites" type="Sprite" parent="."]
+position = Vector2( 11.7555, -10.6035 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+offset = Vector2( -4, 0 )
+hframes = 4
+frame = 3
+region_rect = Rect2( 0, 0, 18, 0 )
+
+[node name="SetColourFromSide" parent="WalkingLeftSprites" instance=ExtResource( 6 )]
+
+[node name="WalkingRightSprites" type="Sprite" parent="."]
+visible = false
+position = Vector2( 7.18828, -10.6035 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 3 )
+offset = Vector2( -4, 0 )
+hframes = 4
+frame = 3
+
+[node name="SetColourFromSide" parent="WalkingRightSprites" instance=ExtResource( 6 )]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -2.94809, -10.3289 )
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Run_Left = SubResource( 2 )
+anims/Run_Right = SubResource( 3 )
+
+[node name="RespawnTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AudioStreamPlayer_Died" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+
+[connection signal="timeout" from="RespawnTimer" to="." method="_on_RespawnTimer_timeout"]

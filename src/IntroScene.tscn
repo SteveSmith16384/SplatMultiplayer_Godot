@@ -1,0 +1,78 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://IntroScene.gd" type="Script" id=2]
+[ext_resource path="res://assets/DefaultFont_Small.tres" type="DynamicFont" id=5]
+[ext_resource path="res://assets/DefaultFont.tres" type="DynamicFont" id=6]
+[ext_resource path="res://TVShader.tscn" type="PackedScene" id=8]
+
+[node name="IntroScene" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label_Version" type="Label" parent="CanvasLayer"]
+margin_left = 425.615
+margin_top = 3.14273
+margin_right = 877.615
+margin_bottom = 19.1427
+custom_fonts/font = ExtResource( 5 )
+text = "Version 0.1"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer2" type="CenterContainer" parent="CanvasLayer"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label_Credits" type="Label" parent="CanvasLayer/CenterContainer2"]
+margin_left = 116.0
+margin_top = 2.0
+margin_right = 396.0
+margin_bottom = 18.0
+custom_fonts/font = ExtResource( 5 )
+text = "Programmed by Stephen Smith based on Splat!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TVShader" parent="CanvasLayer" instance=ExtResource( 8 )]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+margin_left = 195.088
+margin_top = 21.8633
+margin_right = 347.088
+margin_bottom = 92.8633
+custom_fonts/font = ExtResource( 6 )
+text = "MULTIPLAYER"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+margin_left = 136.225
+margin_top = 294.314
+margin_right = 393.225
+margin_bottom = 365.314
+custom_fonts/font = ExtResource( 6 )
+text = "Press jump to start!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer_Music" type="AudioStreamPlayer" parent="."]
+autoplay = true
+
+[node name="Timer_Flash" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="Timer_Flash" to="." method="_on_Timer_Flash_timeout"]

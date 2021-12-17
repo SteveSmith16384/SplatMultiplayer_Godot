@@ -13,12 +13,11 @@ namespace ReadImageFile
 
 			Bitmap img = new Bitmap("Splat.png");
 //			for (int j = 5; j < img.Height; j+=8)
-//			for (int j = 5; j < img.Height; j+=8)
-			int j = 5;
+			for (int j = 7; j < img.Height; j+=8)
+//			int j = 55;
 			{
 				StringBuilder str = new StringBuilder();
-//				for (int i = 5; i < img.Width; i+=8)
-				for (int i = 5; i < img.Width; i+=8)
+				for (int i = 4; i < img.Width; i+=8)
 				{
 					Color pixel = img.GetPixel(i, j); // Origin seems to be top-left
 					var num = pixel.ToArgb();
@@ -29,6 +28,10 @@ namespace ReadImageFile
 					else if (num == -1) // White
 					{
 						str.Append(" ,");
+					}
+					else if (num == -16713728) // Green
+					{
+						str.Append("G,");
 					}
 					else
 					{
