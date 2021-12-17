@@ -44,20 +44,6 @@ format = 1
 [node name="World" type="Node2D"]
 script = ExtResource( 5 )
 
-[node name="StartPositions" type="Node" parent="."]
-
-[node name="StartPosition_0" type="Position2D" parent="StartPositions"]
-position = Vector2( 53.211, 277.077 )
-
-[node name="StartPosition_1" type="Position2D" parent="StartPositions"]
-position = Vector2( 128.862, 279.586 )
-
-[node name="StartPosition_2" type="Position2D" parent="StartPositions"]
-position = Vector2( 216.315, 277.904 )
-
-[node name="StartPosition_3" type="Position2D" parent="StartPositions"]
-position = Vector2( 312.177, 277.904 )
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
@@ -165,3 +151,17 @@ autoplay = true
 
 [node name="AudioStreamPlayer_Collected" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 260.843, 2675.94 )
+current = true
+
+[node name="Label_FPS" type="Label" parent="Camera2D"]
+margin_left = -244.107
+margin_top = -178.336
+margin_right = -204.107
+margin_bottom = -164.336
+text = "FPS:"
+__meta__ = {
+"_edit_use_anchors_": false
+}

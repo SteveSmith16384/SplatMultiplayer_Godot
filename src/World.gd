@@ -17,7 +17,6 @@ func _ready():
 	for side in Globals.player_nums: # range(0, 4):# todo - re-add 
 		var player = player_class.instance()
 		player.side = side
-		#player.set_collision_mask_bit(side, 1)
 		player.name = "Player_" + str(side)
 		set_player_start_pos(player)
 		add_child(player)
@@ -30,7 +29,9 @@ func _ready():
 
 
 func set_player_start_pos(player):
-	var pos: Vector2 = get_node("StartPositions/StartPosition_" + str(player.side)).position
+	var pos: Vector2 = $Camera2D.position
+	#pos.x += 300 # todo
+	#pos.y += 200 # todo
 	player.position = pos
 	pass
 	
@@ -38,6 +39,10 @@ func set_player_start_pos(player):
 func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
 		get_tree().change_scene("res://SelectPlayersScene.tscn")
+
+	#todo	
+#	$Camera2D.position.x += delta * 10
+#	$Camera2D.position.y += delta * 10
 	pass
 
 	

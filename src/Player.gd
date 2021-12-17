@@ -33,11 +33,21 @@ func _physics_process(_delta):
 		return
 		
 	motion.x = 0
+	motion.y = 0
 	if Input.is_action_pressed("move_right" + str(side)):
 		motion.x += SPEED
-		animationPlayer.play("Run_Right")
+		animationPlayer.play("Run_Left")
 	elif Input.is_action_pressed("move_left" + str(side)):
 		motion.x -= SPEED
+		animationPlayer.play("Run_Left")
+	else:
+		animationPlayer.stop(false)
+
+	if Input.is_action_pressed("move_up" + str(side)):
+		motion.y -= SPEED
+		animationPlayer.play("Run_Left")
+	elif Input.is_action_pressed("move_down" + str(side)):
+		motion.y += SPEED
 		animationPlayer.play("Run_Left")
 	else:
 		animationPlayer.stop(false)

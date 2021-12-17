@@ -3,6 +3,7 @@ extends Node
 const VERSION = "0.1"
 const RELEASE_MODE = true
 
+const SHOW_FPS = true and !RELEASE_MODE
 const NO_ENEMIES = false and !RELEASE_MODE
 
 const PTS_FOR_DIAMOND = 50

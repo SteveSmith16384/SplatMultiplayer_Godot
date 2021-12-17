@@ -1,6 +1,6 @@
 extends Node
 
-var colors = [Color(1.0, 1.0, 1.0, 1.0),
+var colors = [Color(0.0, 0.0, 0.0, 1.0),
 		  Color(0.0, 1.0, 0.0, 1.0),
 		  Color(1.0, 1.0, 0.0, 1.0),
 		  Color(0.0, 1.0, 1.0, 1.0)]
