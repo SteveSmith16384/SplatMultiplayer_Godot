@@ -1,6 +1,7 @@
 extends Node2D
 
 var wall_class = preload("res://Wall.tscn")
+var coll_class = preload("res://Collectable.tscn")
 
 func _on_Button_pressed():
 	create_map_data(self)
@@ -21,6 +22,7 @@ func create_map_data(owner : Node):
 		push_error("Error opening map file")
 		
 	var vm = Node2D.new()
+	vm.name = "SplatMap"
 	
 	var row: int = 0
 	while !file.eof_reached():
@@ -32,9 +34,14 @@ func create_map_data(owner : Node):
 				wall.position.x = x * 8
 				wall.position.y = row * 8
 				vm.add_child(wall)
-				wall.owner = vm
+				wall.owner = vm # Must be after we add it
 				pass
 			elif tmp == "G": # Grass
+				var grass = coll_class.instance()
+				grass.position.x = x * 8
+				grass.position.y = row * 8
+				vm.add_child(grass)
+				grass.owner = vm # Must be after we add it
 				pass
 			else:
 				print("Unknown: " + tmp)
@@ -48,5 +55,5 @@ func create_map_data(owner : Node):
 	var packed_scene = PackedScene.new()
 	packed_scene.pack(vm)
 	ResourceSaver.save("SplatMap.tscn", packed_scene)
-	return vm
+	pass
 	

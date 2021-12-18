@@ -82,7 +82,6 @@ func key_collected(player : Player, key : Collectable):
 	
 	var fly = self.flying_key_class.instance()
 	fly.start_pos = key.global_position
-	#fly.end_pos = Vector2()
 	self.add_child(fly)	
 	pass
 	

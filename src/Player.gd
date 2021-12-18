@@ -74,7 +74,6 @@ func _on_RespawnTimer_timeout():
 	alive = true
 	motion = Vector2()
 	main.set_player_start_pos(self)
-	$InvincibleTimer.start()
 	pass
 
 

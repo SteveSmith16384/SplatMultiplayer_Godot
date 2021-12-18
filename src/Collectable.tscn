@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://assets/key.png" type="Texture" id=1]
+[ext_resource path="res://assets/graphics/deadly_plant.png" type="Texture" id=1]
 [ext_resource path="res://AlternateColours.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Collectable.gd" type="Script" id=3]
 
