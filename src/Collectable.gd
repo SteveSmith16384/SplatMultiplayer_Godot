@@ -19,7 +19,6 @@ func _on_Collectable_body_entered(body):
 			return # Already collected
 			
 		collected_by.push_back(body)
-		body.keys_collected += 1
 		body.inc_score(Globals.PTS_FOR_DIAMOND)
 
 		var main = get_tree().get_root().get_node("World")

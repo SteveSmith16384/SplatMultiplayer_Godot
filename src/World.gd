@@ -77,8 +77,6 @@ func update_score(player):
 
 func key_collected(player : Player, key : Collectable):
 	$AudioStreamPlayer_Collected.play()
-	if player.keys_collected >= total_keys:
-		$CentralCavern.show_toaster()
 	
 	var fly = self.flying_key_class.instance()
 	fly.start_pos = key.global_position
