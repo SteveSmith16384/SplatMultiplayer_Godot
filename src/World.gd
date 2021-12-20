@@ -31,11 +31,13 @@ func _ready():
 	pass
 
 
-func set_player_start_pos(player):
-	var pos: Vector2 = $Camera2D.position
-	#pos.x += 300 # todo
-	#pos.y += 200 # todo
-	player.position = pos
+func set_player_start_pos(player) -> bool:
+	if $MyCamera/CheckAreaEmpty.get_overlapping_bodies().size() == 0:
+		var pos: Vector2 = $MyCamera.position
+		player.position = pos
+		return true;
+	
+	return false
 	pass
 	
 	
@@ -71,7 +73,8 @@ func show_winner(side):
 
 func update_score(player):
 	var node = find_node("Score_" + str(player.side))
-	node.text = "SCORE:" + str(player.score)
+	if node:
+		node.text = "SCORE:" + str(player.score)
 	pass
 	
 
@@ -84,13 +87,16 @@ func key_collected(player : Player, key : Collectable):
 	pass
 	
 
-
 func _on_Timer_FPS_timeout():
 	$Label_FPS.set_text("FPS: " + str(Engine.get_frames_per_second()))
 	pass
 
 
-func _on_Area2D_body_exited(body):
-	if body.is_in_group("players"):
-		body.die()
+func _on_MyCamera_player_hit_edge(player):
+	player.die()
+	pass
+
+
+func _on_MyCamera_end_of_level():
+	# todo
 	pass

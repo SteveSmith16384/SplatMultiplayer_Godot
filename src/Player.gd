@@ -71,9 +71,10 @@ func die():
 	
 
 func _on_RespawnTimer_timeout():
-	alive = true
-	motion = Vector2()
-	main.set_player_start_pos(self)
+	if main.set_player_start_pos(self):
+		alive = true
+	else:
+		$RespawnTimer.start() # Try again
 	pass
 
 

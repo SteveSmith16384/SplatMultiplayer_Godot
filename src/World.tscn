@@ -153,8 +153,11 @@ autoplay = true
 [node name="AudioStreamPlayer_Collected" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 
-[node name="Camera2D" parent="." instance=ExtResource( 2 )]
+[node name="MyCamera" parent="." instance=ExtResource( 2 )]
+position = Vector2( 214.137, 2718.85 )
 
 [node name="Timer_FPS" type="Timer" parent="."]
 
+[connection signal="end_of_level" from="MyCamera" to="." method="_on_MyCamera_end_of_level"]
+[connection signal="player_hit_edge" from="MyCamera" to="." method="_on_MyCamera_player_hit_edge"]
 [connection signal="timeout" from="Timer_FPS" to="." method="_on_Timer_FPS_timeout"]
