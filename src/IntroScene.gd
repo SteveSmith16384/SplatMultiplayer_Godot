@@ -8,6 +8,8 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
 		get_tree().quit()
+	if Input.is_action_just_pressed("full_screen"):
+		OS.window_fullscreen = !OS.window_fullscreen
 		
 	for i in range(0,4):
 		if Input.is_action_just_pressed("primary_fire" + str(i)) or Input.is_action_just_pressed("jump" + str(i)):

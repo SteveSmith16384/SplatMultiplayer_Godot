@@ -9,7 +9,9 @@ onready var walking_left_sprite = $WalkingLeftSprites
 onready var walking_right_sprite = $WalkingRightSprites
 
 var motion = Vector2.ZERO
+
 var alive = true
+var respawning = false
 var side : int
 var score : int = 0
 
@@ -19,10 +21,14 @@ func _ready():
 	
 	
 func _process(_delta):
-	if alive == false:
+	if main.game_over:
 		return
 		
-	if main.game_over:
+	if alive == false:
+		if respawning:
+			if main.set_player_start_pos(self):
+				$AudioStreamPlayer_Respawn.play()
+				alive = true
 		return
 		
 	motion.x = 0
@@ -63,6 +69,7 @@ func die():
 	$AudioStreamPlayer_Died.play()
 	self.position = Vector2(-1000, -1000)
 	alive = false
+	respawning = false
 	$RespawnTimer.start()
 	main.update_score(self)
 	inc_score(-score / 2)
@@ -70,11 +77,7 @@ func die():
 	
 
 func _on_RespawnTimer_timeout():
-	if main.set_player_start_pos(self):
-		$AudioStreamPlayer_Respawn.play()
-		alive = true
-	else:
-		$RespawnTimer.start() # Try again
+	respawning = true
 	pass
 
 

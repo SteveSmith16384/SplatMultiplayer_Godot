@@ -30,6 +30,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="TVShader" parent="CanvasLayer" instance=ExtResource( 8 )]
+
+[node name="Label3" type="Label" parent="CanvasLayer"]
+margin_left = 85.119
+margin_top = 321.903
+margin_right = 456.119
+margin_bottom = 356.903
+custom_fonts/font = ExtResource( 5 )
+text = "Press F11 to toggle Full Screen
+"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="CenterContainer2" type="CenterContainer" parent="CanvasLayer"]
 anchor_top = 1.0
 anchor_right = 1.0
@@ -51,8 +67,6 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="TVShader" parent="CanvasLayer" instance=ExtResource( 8 )]
 
 [node name="Label" type="Label" parent="CanvasLayer"]
 margin_left = 193.828

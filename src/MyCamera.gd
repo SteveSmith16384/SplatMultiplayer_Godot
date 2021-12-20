@@ -5,8 +5,9 @@ signal end_of_level
 
 var SPEED = 30
 
-var time_left:float = 60
+var time_left : float = 60 # Time left on level
 var end_pos = Vector2(1680,2295)
+var main
 
 var curr_move_dir = Vector2()
 var time_curr_move = 0
@@ -14,11 +15,20 @@ var left_right = false
 
 
 func _ready():
+	main = get_tree().get_root().get_node("World")
 	get_end_pos()
 	pass
 	
 	
 func _process(delta):
+	if main.game_over:
+		return
+		
+	var dist = end_pos.distance_to(self.position)
+	if dist < 70:
+		end_of_level_reached()
+		return
+
 	time_left -= delta
 	
 	if time_curr_move > 0 and curr_move_dir.length() > 0:
@@ -28,26 +38,22 @@ func _process(delta):
 		# Ensure within map
 		if self.position.x < 214:
 			self.position.x = 214
-			time_left = 0
+			time_curr_move = 0
 		elif self.position.x > 1680:
 			self.position.x = 1680
-			time_left = 0
+			time_curr_move = 0
 		if self.position.y < 142:
 			self.position.y = 142
-			time_left = 0
+			time_curr_move = 0
 		elif self.position.y > 2718:
 			self.position.y = 2718
-			time_left = 0
+			time_curr_move = 0
 			
 		return
 	
 	left_right = not left_right
-	var dist = end_pos.distance_to(self.position)
-	if dist < 70:
-		end_of_level_reached()
-		return
-	elif dist > time_left * SPEED * 100:
-		curr_move_dir = end_pos - position
+	if dist > time_left * SPEED * 100:
+		curr_move_dir = end_pos - position # Move to end
 		pass
 	else:
 		curr_move_dir = Vector2(Globals.rnd.randi_range(-10, 10), Globals.rnd.randi_range(-10, 10))
@@ -73,8 +79,9 @@ func end_of_level_reached():
 	emit_signal("end_of_level")
 	$AudioStreamPlayer_NextLevel.play()
 	Globals.level += 1
-	if Globals.level >= 8:
-		select_winner();
+	time_left = 45
+	if Globals.level >= 1: #todo - change to 8
+		main.select_winner();
 		return
 
 	$Label_Level.text = "LEVEL:" + str(Globals.level)
@@ -83,10 +90,6 @@ func end_of_level_reached():
 	pass
 	
 
-func select_winner():
-	pass
-	
-	
 func get_end_pos():
 	if Globals.level % 2 != 0:
 		end_pos.x = 1680

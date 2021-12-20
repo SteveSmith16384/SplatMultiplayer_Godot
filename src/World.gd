@@ -44,8 +44,24 @@ func set_player_start_pos(player) -> bool:
 func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
 		get_tree().change_scene("res://SelectPlayersScene.tscn")
+	if Input.is_action_just_pressed("full_screen"):
+		OS.window_fullscreen = !OS.window_fullscreen
 	pass
 
+
+func select_winner():
+	var winner = null
+	for side in Globals.player_nums: # range(0, 4):# todo - re-add 
+		var player = get_node("Player_" + str(side))
+		if player:
+			if winner == null:
+				winner = player
+			elif player.score > winner.score:
+				winner = player
+	
+	show_winner(winner.side)
+	pass
+	
 	
 func show_winner(side):
 	if game_over:
