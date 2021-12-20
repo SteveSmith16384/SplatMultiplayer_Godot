@@ -1,7 +1,7 @@
 class_name Player
 extends KinematicBody2D
 
-const SPEED = 80
+const SPEED = 170
 
 onready var main = get_tree().get_root().get_node("World")
 
@@ -14,17 +14,20 @@ var alive = true
 var side : int
 var score : int = 0
 
+var sideways = false
 
 func _ready():
 	main.update_score(self)
+	
+	$RespawnTimer.start()
 	pass
 	
 	
 func _process(_delta):
-	pass
-	
-	
-func _physics_process(_delta):
+#	pass
+#	
+#	
+#func _physics_process(_delta):
 	if alive == false:
 		return
 		
@@ -33,24 +36,35 @@ func _physics_process(_delta):
 		
 	motion.x = 0
 	motion.y = 0
+	var moving = false
 	if Input.is_action_pressed("move_right" + str(side)):
 		motion.x += SPEED
 		animationPlayer.play("Run_Left")
+		$AnimatedSprite.play("default")
+		moving = true
 	elif Input.is_action_pressed("move_left" + str(side)):
 		motion.x -= SPEED
 		animationPlayer.play("Run_Left")
-	else:
-		animationPlayer.stop(false)
-
-	if Input.is_action_pressed("move_up" + str(side)):
+		$AnimatedSprite.play("default")
+		moving = true
+	elif Input.is_action_pressed("move_up" + str(side)):
 		motion.y -= SPEED
 		animationPlayer.play("Run_Left")
+		$AnimatedSprite.play("default")
+		moving = true
 	elif Input.is_action_pressed("move_down" + str(side)):
 		motion.y += SPEED
 		animationPlayer.play("Run_Left")
+		$AnimatedSprite.play("default")
+		moving = true
 	else:
-		animationPlayer.stop(false)
-	
+#		animationPlayer.stop(false)
+#		$AnimatedSprite.stop()
+		pass
+		
+	if not moving:
+		$AnimatedSprite.stop()
+		
 	motion = move_and_slide(motion, Vector2.UP)
 	
 	var c = get_slide_count()

@@ -3,7 +3,7 @@ extends Camera2D
 signal player_hit_edge
 signal end_of_level
 
-var SPEED = 15
+var SPEED = 20
 
 var time_left:float = 60
 var end_pos = Vector2(1680,2295)
@@ -80,7 +80,7 @@ func end_of_level_reached():
 	
 	
 func get_end_pos():
-	if Globals.level % 2 == 0:
+	if Globals.level % 2 != 0:
 		end_pos.x = 1680
 	else:
 		end_pos.x = 214

@@ -9,7 +9,7 @@ func _ready():
 
 
 func _process(delta):
-	pcent += delta
+	pcent += delta/5
 	self.position.x = lerp(start_pos.x, end_pos.x, pcent)
 	self.position.y = lerp(start_pos.y, end_pos.y, pcent)
 	
