@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/border.png-55dec668ce0ef402aa9e312b0326724b.stex"
+path="res://.import/splat2.png-5fe08283f507685ebbaf80bbdbe04d38.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/graphics/border.png"
-dest_files=[ "res://.import/border.png-55dec668ce0ef402aa9e312b0326724b.stex" ]
+source_file="res://assets/graphics/splat2.png"
+dest_files=[ "res://.import/splat2.png-5fe08283f507685ebbaf80bbdbe04d38.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

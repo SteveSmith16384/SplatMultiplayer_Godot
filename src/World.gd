@@ -1,7 +1,6 @@
 extends Node2D
 
 const player_class = preload("res://Player.tscn")
-const flying_key_class = preload("res://FlyingKey.tscn")
 
 var game_over = false
 var winner : int
@@ -27,28 +26,24 @@ func _ready():
 		add_child(player)
 		var score = find_node("Score_" + str(side))
 		score.visible = true
-		pass
-		
+		pass		
 	pass
 
 
 func set_player_start_pos(player) -> bool:
 	if $MyCamera/CheckAreaEmpty.get_overlapping_bodies().size() == 0:
-		var pos: Vector2 = $MyCamera.position
-		player.position = pos
-		return true;
-	else:
-		return false
+		if $MyCamera/CheckAreaEmpty.get_overlapping_areas().size() <= 1:
+			var pos: Vector2 = $MyCamera.position
+			player.position = pos
+			return true;
+
+	return false
 	pass
 	
 	
 func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
 		get_tree().change_scene("res://SelectPlayersScene.tscn")
-
-	#todo	
-#	$Camera2D.position.x += delta * 10
-#	$Camera2D.position.y += delta * 10
 	pass
 
 	
@@ -81,14 +76,6 @@ func update_score(player):
 
 func key_collected(player : Player, key : Collectable):
 	$AudioStreamPlayer_Collected.play()
-	
-	var fly = self.flying_key_class.instance()
-	fly.start_pos = key.global_position
-	if key.type == Collectable.Type.Grass:
-		fly.find_node("Sprite_Plum").visible = false
-	else:
-		fly.find_node("Sprite_Grass").visible = false
-	self.add_child(fly)	
 	pass
 	
 

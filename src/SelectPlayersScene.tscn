@@ -48,7 +48,7 @@ margin_top = 131.607
 margin_right = 497.132
 margin_bottom = 202.607
 custom_fonts/font = ExtResource( 3 )
-text = "PRESS JUMP TO JOIN, ENTER TO START!
+text = "PRESS FIRE TO JOIN, ENTER TO START!
 "
 __meta__ = {
 "_edit_use_anchors_": false

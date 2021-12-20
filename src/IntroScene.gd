@@ -17,8 +17,8 @@ func _process(delta):
 	pass
 
 func _on_Timer_Flash_timeout():
-	#var label = find_node("Label")
-	#label.visible = not label.visible
+	var label = find_node("Label2")
+	label.visible = not label.visible
 	pass
 
 

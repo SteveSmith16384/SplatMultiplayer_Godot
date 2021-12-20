@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/graphics/player1.png" type="Texture" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
 [ext_resource path="res://assets/graphics/player2.png" type="Texture" id=3]
 [ext_resource path="res://SetColourFromSide.tscn" type="PackedScene" id=4]
-[ext_resource path="res://assets/sfx/sfx_deathscream_human1.wav" type="AudioStream" id=5]
+[ext_resource path="res://assets/sfx/sfx_sounds_impact12.wav" type="AudioStream" id=5]
+[ext_resource path="res://assets/sfx/sfx_sounds_impact9.wav" type="AudioStream" id=6]
 
 [sub_resource type="CircleShape2D" id=4]
 radius = 7.0
@@ -39,5 +40,8 @@ frames = SubResource( 3 )
 frame = 1
 
 [node name="SetColourFromSide" parent="AnimatedSprite" instance=ExtResource( 4 )]
+
+[node name="AudioStreamPlayer_Respawn" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
 
 [connection signal="timeout" from="RespawnTimer" to="." method="_on_RespawnTimer_timeout"]

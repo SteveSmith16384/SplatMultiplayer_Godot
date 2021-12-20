@@ -13,20 +13,12 @@ var alive = true
 var side : int
 var score : int = 0
 
-var sideways = false
-
 func _ready():
 	main.update_score(self)
-	
-#	$RespawnTimer.start()
 	pass
 	
 	
 func _process(_delta):
-#	pass
-#	
-#	
-#func _physics_process(_delta):
 	if alive == false:
 		return
 		
@@ -79,6 +71,7 @@ func die():
 
 func _on_RespawnTimer_timeout():
 	if main.set_player_start_pos(self):
+		$AudioStreamPlayer_Respawn.play()
 		alive = true
 	else:
 		$RespawnTimer.start() # Try again

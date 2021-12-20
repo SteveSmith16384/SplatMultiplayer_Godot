@@ -8,7 +8,6 @@
 position = Vector2( 110.309, 73.5391 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
-region_enabled = true
 region_rect = Rect2( 0, 0, 16, 16 )
 script = ExtResource( 2 )
 

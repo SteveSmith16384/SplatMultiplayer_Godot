@@ -3,7 +3,7 @@ extends Camera2D
 signal player_hit_edge
 signal end_of_level
 
-var SPEED = 25
+var SPEED = 30
 
 var time_left:float = 60
 var end_pos = Vector2(1680,2295)
@@ -71,12 +71,19 @@ func _on_Area2D_body_exited(body):
 
 func end_of_level_reached():
 	emit_signal("end_of_level")
+	$AudioStreamPlayer_NextLevel.play()
 	Globals.level += 1
+	if Globals.level >= 8:
+		select_winner();
+		return
+
 	$Label_Level.text = "LEVEL:" + str(Globals.level)
-	# todo - check for end of game
-	SPEED += 5
-	
+	SPEED += 10
 	get_end_pos()
+	pass
+	
+
+func select_winner():
 	pass
 	
 	

@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/graphics/border.png" type="Texture" id=1]
 [ext_resource path="res://MyCamera.gd" type="Script" id=2]
 [ext_resource path="res://CheckAreaEmpty.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/DefaultFont.tres" type="DynamicFont" id=4]
+[ext_resource path="res://assets/sfx/sfx_movement_portal1.wav" type="AudioStream" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 210.929, 141.93 )
@@ -44,5 +45,8 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 1 )
+
+[node name="AudioStreamPlayer_NextLevel" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
 
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
