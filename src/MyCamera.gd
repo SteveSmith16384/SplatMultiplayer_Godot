@@ -72,6 +72,7 @@ func _on_Area2D_body_exited(body):
 func end_of_level_reached():
 	emit_signal("end_of_level")
 	Globals.level += 1
+	$Label_Level.text = "LEVEL:" + str(Globals.level)
 	# todo - check for end of game
 	SPEED += 5
 	

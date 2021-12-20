@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/graphics/border.png" type="Texture" id=1]
 [ext_resource path="res://MyCamera.gd" type="Script" id=2]
 [ext_resource path="res://CheckAreaEmpty.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/DefaultFont.tres" type="DynamicFont" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 210.929, 141.93 )
@@ -24,6 +25,17 @@ margin_right = -174.504
 margin_bottom = -132.082
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "FPS:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label_Level" type="Label" parent="."]
+margin_left = -20.8255
+margin_top = 154.057
+margin_right = 88.1745
+margin_bottom = 188.057
+custom_fonts/font = ExtResource( 4 )
+text = "LEVEL:1"
 __meta__ = {
 "_edit_use_anchors_": false
 }

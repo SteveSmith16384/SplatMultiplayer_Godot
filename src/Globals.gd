@@ -6,8 +6,6 @@ const RELEASE_MODE = false
 const SHOW_FPS = true and !RELEASE_MODE
 const NO_ENEMIES = false and !RELEASE_MODE
 
-const PTS_FOR_DIAMOND = 50
-
 # Other settings
 var MUSIC_ON = true
 

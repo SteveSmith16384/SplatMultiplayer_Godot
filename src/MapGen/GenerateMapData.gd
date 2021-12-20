@@ -1,7 +1,9 @@
 extends Node2D
 
 var wall_class = preload("res://Wall.tscn")
-var coll_class = preload("res://Collectable.tscn")
+var grass_class = preload("res://Grass.tscn")
+var plum_class = preload("res://Plum.tscn")
+var harm_class = preload("res://HarmfulArea.tscn")
 
 func _on_Button_pressed():
 	create_map_data(self)
@@ -29,24 +31,26 @@ func create_map_data(owner : Node):
 		var csv : PoolStringArray = file.get_csv_line()
 		for x in csv.size()-1:
 			var tmp = csv[x]
+			var obj
 			if tmp == "W": # Wall
-				var wall = wall_class.instance()
-				wall.position.x = x * 8
-				wall.position.y = row * 8
-				vm.add_child(wall)
-				wall.owner = vm # Must be after we add it
-				pass
+				obj = wall_class.instance()
 			elif tmp == "G": # Grass
-				var grass = coll_class.instance()
-				grass.position.x = x * 8
-				grass.position.y = row * 8
-				vm.add_child(grass)
-				grass.owner = vm # Must be after we add it
-				pass
+				obj = grass_class.instance()
+				#obj.set_type(Collectable.Type.Grass)
+			elif tmp == "P": # Plum
+				obj = plum_class.instance()
+				#obj.set_type(Collectable.Type.Plum)
+			elif tmp == "L" or tmp == "S" or tmp == "C" or tmp == "B":
+				obj = harm_class.instance()
 			else:
 				print("Unknown: " + tmp)
-				pass
+				continue
 			
+			obj.position.x = x * 8
+			obj.position.y = row * 8
+			vm.add_child(obj)
+			obj.owner = vm # Must be after we add it
+			pass
 		row += 1
 		pass
 	file.close()

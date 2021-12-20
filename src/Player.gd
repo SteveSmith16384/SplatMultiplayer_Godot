@@ -7,7 +7,6 @@ onready var main = get_tree().get_root().get_node("World")
 
 onready var walking_left_sprite = $WalkingLeftSprites
 onready var walking_right_sprite = $WalkingRightSprites
-onready var animationPlayer = $AnimationPlayer
 
 var motion = Vector2.ZERO
 var alive = true
@@ -39,27 +38,20 @@ func _process(_delta):
 	var moving = false
 	if Input.is_action_pressed("move_right" + str(side)):
 		motion.x += SPEED
-		animationPlayer.play("Run_Left")
 		$AnimatedSprite.play("default")
 		moving = true
 	elif Input.is_action_pressed("move_left" + str(side)):
 		motion.x -= SPEED
-		animationPlayer.play("Run_Left")
 		$AnimatedSprite.play("default")
 		moving = true
 	elif Input.is_action_pressed("move_up" + str(side)):
 		motion.y -= SPEED
-		animationPlayer.play("Run_Left")
 		$AnimatedSprite.play("default")
 		moving = true
 	elif Input.is_action_pressed("move_down" + str(side)):
 		motion.y += SPEED
-		animationPlayer.play("Run_Left")
 		$AnimatedSprite.play("default")
 		moving = true
-	else:
-#		animationPlayer.stop(false)
-#		$AnimatedSprite.stop()
 		pass
 		
 	if not moving:

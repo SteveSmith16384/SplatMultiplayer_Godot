@@ -1,12 +1,10 @@
 extends Node2D
 
 const player_class = preload("res://Player.tscn")
-const collectable_class = preload("res://Collectable.tscn")
 const flying_key_class = preload("res://FlyingKey.tscn")
 
 var game_over = false
 var winner : int
-var total_keys = 0
 
 func _ready():
 	if Globals.SHOW_FPS:
@@ -31,7 +29,6 @@ func _ready():
 		score.visible = true
 		pass
 		
-	print("Num keys:" + str(self.total_keys))
 	pass
 
 
@@ -87,6 +84,10 @@ func key_collected(player : Player, key : Collectable):
 	
 	var fly = self.flying_key_class.instance()
 	fly.start_pos = key.global_position
+	if key.type == Collectable.Type.Grass:
+		fly.find_node("Sprite_Plum").visible = false
+	else:
+		fly.find_node("Sprite_Grass").visible = false
 	self.add_child(fly)	
 	pass
 	

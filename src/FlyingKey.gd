@@ -1,4 +1,4 @@
-extends Sprite
+extends Node2D
 
 var start_pos : Vector2
 var end_pos = Vector2(255, 0)
