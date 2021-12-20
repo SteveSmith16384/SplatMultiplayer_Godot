@@ -11,6 +11,9 @@ var total_keys = 0
 func _ready():
 	if Globals.SHOW_FPS:
 		$Timer_FPS.start()
+	else:
+		$MyCamera/Label_FPS.visible = false
+		
 	Globals.level = 1
 	
 	for side in range(0, 4):
@@ -37,8 +40,8 @@ func set_player_start_pos(player) -> bool:
 		var pos: Vector2 = $MyCamera.position
 		player.position = pos
 		return true;
-	
-	return false
+	else:
+		return false
 	pass
 	
 	
@@ -89,7 +92,7 @@ func key_collected(player : Player, key : Collectable):
 	
 
 func _on_Timer_FPS_timeout():
-	$Label_FPS.set_text("FPS: " + str(Engine.get_frames_per_second()))
+	$MyCamera/Label_FPS.set_text("FPS: " + str(Engine.get_frames_per_second()))
 	pass
 
 

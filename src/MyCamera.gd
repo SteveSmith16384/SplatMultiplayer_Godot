@@ -3,7 +3,7 @@ extends Camera2D
 signal player_hit_edge
 signal end_of_level
 
-var SPEED = 20
+var SPEED = 25
 
 var time_left:float = 60
 var end_pos = Vector2(1680,2295)
