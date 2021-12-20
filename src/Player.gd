@@ -18,7 +18,7 @@ var sideways = false
 func _ready():
 	main.update_score(self)
 	
-	$RespawnTimer.start()
+#	$RespawnTimer.start()
 	pass
 	
 	
@@ -73,6 +73,7 @@ func die():
 	alive = false
 	$RespawnTimer.start()
 	main.update_score(self)
+	inc_score(-score / 2)
 	pass
 	
 

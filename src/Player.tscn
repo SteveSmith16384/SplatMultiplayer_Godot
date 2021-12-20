@@ -6,8 +6,8 @@
 [ext_resource path="res://SetColourFromSide.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/sfx/sfx_deathscream_human1.wav" type="AudioStream" id=5]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 7, 7 )
+[sub_resource type="CircleShape2D" id=4]
+radius = 7.0
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
@@ -24,9 +24,10 @@ collision_layer = 2
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+shape = SubResource( 4 )
 
 [node name="RespawnTimer" type="Timer" parent="."]
+wait_time = 4.0
 one_shot = true
 
 [node name="AudioStreamPlayer_Died" type="AudioStreamPlayer" parent="."]
