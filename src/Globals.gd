@@ -12,6 +12,8 @@ const PTS_FOR_DIAMOND = 50
 var MUSIC_ON = true
 
 var player_nums = []
+var level : int = 1
+
 var rnd : RandomNumberGenerator
 
 func _ready():

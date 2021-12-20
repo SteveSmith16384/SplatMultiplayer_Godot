@@ -5,7 +5,7 @@
 [ext_resource path="res://assets/sfx/sfx_deathscream_human1.wav" type="AudioStream" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 7.79943, 5.30911 )
+extents = Vector2( 7.79943, 5.92186 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "Run_Left"
@@ -19,7 +19,6 @@ collision_layer = 2
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0.201713, -0.40702 )
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

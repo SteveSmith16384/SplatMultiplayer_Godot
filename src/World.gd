@@ -11,7 +11,8 @@ var total_keys = 0
 func _ready():
 	if Globals.SHOW_FPS:
 		$Timer_FPS.start()
-		
+	Globals.level = 1
+	
 	for side in range(0, 4):
 		var score = find_node("Score_" + str(side))
 		score.visible = false
