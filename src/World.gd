@@ -43,6 +43,7 @@ func set_player_start_pos(player) -> bool:
 	
 func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
+		game_over = true # Prevent firing any events
 		get_tree().change_scene("res://SelectPlayersScene.tscn")
 	if Input.is_action_just_pressed("full_screen"):
 		OS.window_fullscreen = !OS.window_fullscreen
@@ -50,6 +51,19 @@ func _process(delta):
 
 
 func select_winner():
+	if game_over:
+		return
+		
+	if Globals.game_mode == Globals.GameMode.ToTheDeath:
+		# Check players left alive
+		var num_alive = 0
+		for side in Globals.player_nums: # range(0, 4):# todo - re-add 
+			var player = get_node("Player_" + str(side))
+			if player and player.alive:
+				num_alive += 1
+		if num_alive > 1:
+			return
+			
 	var winner = null
 	for side in Globals.player_nums: # range(0, 4):# todo - re-add 
 		var player = get_node("Player_" + str(side))

@@ -8,6 +8,13 @@ const SHOW_FPS = false and !RELEASE_MODE
 var player_nums = []
 var level : int = 1
 
+enum GameMode {
+	ToTheDeath, # Last survivor
+	LongPlay # Highest score
+	}
+	
+var game_mode = GameMode.ToTheDeath
+
 var rnd : RandomNumberGenerator
 
 func _ready():

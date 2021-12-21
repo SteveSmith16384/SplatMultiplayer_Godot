@@ -70,9 +70,13 @@ func die():
 	self.position = Vector2(-1000, -1000)
 	alive = false
 	respawning = false
-	$RespawnTimer.start()
 	main.update_score(self)
 	inc_score(-score / 2)
+
+	if Globals.game_mode == Globals.GameMode.LongPlay:
+		$RespawnTimer.start()
+	else:
+		main.select_winner()
 	pass
 	
 
