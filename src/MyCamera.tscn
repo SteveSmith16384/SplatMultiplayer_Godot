@@ -31,10 +31,10 @@ __meta__ = {
 }
 
 [node name="Label_Level" type="Label" parent="."]
-margin_left = -20.8255
-margin_top = 154.057
-margin_right = 88.1745
-margin_bottom = 188.057
+margin_left = -22.5933
+margin_top = 167.846
+margin_right = 86.4067
+margin_bottom = 201.846
 custom_fonts/font = ExtResource( 4 )
 text = "LEVEL:1"
 __meta__ = {

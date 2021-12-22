@@ -85,7 +85,10 @@ func end_of_level_reached():
 		return
 
 	$Label_Level.text = "LEVEL:" + str(Globals.level)
-	SPEED += 10
+	if Globals.game_mode == Globals.GameMode.Original:
+		SPEED += 5
+	else:
+		SPEED += 10
 	get_end_pos()
 	pass
 	

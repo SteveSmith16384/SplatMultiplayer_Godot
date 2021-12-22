@@ -11,6 +11,7 @@ var level : int = 1
 enum GameMode {
 	ToTheDeath, # Last survivor
 	LongPlay # Highest score
+	Original # 3 lives etc...
 	}
 	
 var game_mode = GameMode.ToTheDeath

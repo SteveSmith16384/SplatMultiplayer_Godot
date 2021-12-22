@@ -88,10 +88,10 @@ anims/Pulsate = SubResource( 1 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Scores"]
 anchor_right = 1.0
-margin_left = 120.247
-margin_top = 8.32445
-margin_right = 398.247
-margin_bottom = 24.3244
+margin_left = 32.1836
+margin_top = 10.4611
+margin_right = 506.184
+margin_bottom = 43.4611
 grow_horizontal = 2
 grow_vertical = 2
 custom_constants/separation = 30
@@ -102,7 +102,7 @@ __meta__ = {
 
 [node name="Score_0" type="Label" parent="CanvasLayer/Scores/HBoxContainer"]
 margin_right = 96.0
-margin_bottom = 71.0
+margin_bottom = 33.0
 custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "SCORE:0
@@ -110,27 +110,27 @@ LIVES:3"
 
 [node name="Score_1" type="Label" parent="CanvasLayer/Scores/HBoxContainer"]
 margin_left = 126.0
-margin_top = 18.0
+margin_top = 9.0
 margin_right = 222.0
-margin_bottom = 52.0
+margin_bottom = 24.0
 custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 0.0941176, 1, 0, 1 )
 text = "SCORE:0"
 
 [node name="Score_2" type="Label" parent="CanvasLayer/Scores/HBoxContainer"]
 margin_left = 252.0
-margin_top = 18.0
+margin_top = 9.0
 margin_right = 348.0
-margin_bottom = 52.0
+margin_bottom = 24.0
 custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 0.917647, 1, 0, 1 )
 text = "SCORE:0"
 
 [node name="Score_3" type="Label" parent="CanvasLayer/Scores/HBoxContainer"]
 margin_left = 378.0
-margin_top = 18.0
+margin_top = 9.0
 margin_right = 474.0
-margin_bottom = 52.0
+margin_bottom = 24.0
 custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 0, 1, 0.960784, 1 )
 text = "SCORE:0"

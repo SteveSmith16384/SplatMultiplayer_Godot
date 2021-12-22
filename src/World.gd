@@ -100,7 +100,10 @@ func show_winner(side):
 func update_score(player):
 	var node = find_node("Score_" + str(player.side))
 	if node:
-		node.text = "SCORE:" + str(player.score)
+		if Globals.game_mode == Globals.GameMode.Original:
+			node.text = "SCORE:" + str(player.score) + "\nLIVES:" + str(player.lives)
+		else:
+			node.text = "SCORE:" + str(player.score)
 	pass
 	
 

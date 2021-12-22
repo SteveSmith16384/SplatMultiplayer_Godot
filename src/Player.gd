@@ -14,6 +14,7 @@ var alive = true
 var respawning = false
 var side : int
 var score : int = 0
+var lives = 3
 
 func _ready():
 	main.update_score(self)
@@ -70,13 +71,20 @@ func die():
 	self.position = Vector2(-1000, -1000)
 	alive = false
 	respawning = false
-	main.update_score(self)
-	inc_score(-score / 2)
 
 	if Globals.game_mode == Globals.GameMode.LongPlay:
 		$RespawnTimer.start()
+		inc_score(-score / 2)
+	elif Globals.game_mode == Globals.GameMode.Original:
+		lives -= 1
+		if lives >= 0:
+			$RespawnTimer.start()
+		else:
+			lives = 0
+
 	else:
 		main.select_winner()
+	main.update_score(self)
 	pass
 	
 
