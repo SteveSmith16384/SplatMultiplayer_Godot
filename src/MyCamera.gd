@@ -3,9 +3,9 @@ extends Camera2D
 signal player_hit_edge
 signal end_of_level
 
-var SPEED = 30
+var SPEED = 35
 
-var time_left : float = 60 # Time left on level
+var time_left : float = 50 # Time left on level
 var end_pos = Vector2(1680,2295)
 var main
 
@@ -80,7 +80,7 @@ func end_of_level_reached():
 	$AudioStreamPlayer_NextLevel.play()
 	Globals.level += 1
 	time_left = 45
-	if Globals.level >= 1: #todo - change to 8
+	if Globals.level >= 8:
 		main.select_winner();
 		return
 

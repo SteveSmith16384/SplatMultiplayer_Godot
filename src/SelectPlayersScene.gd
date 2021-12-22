@@ -7,7 +7,7 @@ func _ready():
 	
 func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
-		get_tree().change_scene("res://IntroScene.tscn")
+		get_tree().change_scene("res://SelectGameMode.tscn")
 	if Input.is_action_just_pressed("full_screen"):
 		OS.window_fullscreen = !OS.window_fullscreen
 		

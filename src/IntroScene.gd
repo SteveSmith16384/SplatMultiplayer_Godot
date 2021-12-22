@@ -13,7 +13,7 @@ func _process(delta):
 		
 	for i in range(0,4):
 		if Input.is_action_just_pressed("primary_fire" + str(i)) or Input.is_action_just_pressed("jump" + str(i)):
-			get_tree().change_scene("res://SelectPlayersScene.tscn")
+			get_tree().change_scene("res://SelectGameMode.tscn")
 		pass
 		
 	pass
