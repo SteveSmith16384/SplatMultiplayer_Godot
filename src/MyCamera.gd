@@ -4,6 +4,7 @@ signal player_hit_edge
 signal end_of_level
 
 var SPEED = 35
+var MAX_SPEED = 65
 
 var time_left : float = 50 # Time left on level
 var end_pos = Vector2(1680,2295)
@@ -88,7 +89,9 @@ func end_of_level_reached():
 	if Globals.game_mode == Globals.GameMode.Original:
 		SPEED += 5
 	else:
-		SPEED += 10
+		SPEED += 8
+	if SPEED > MAX_SPEED:
+		SPEED = MAX_SPEED
 	get_end_pos()
 	pass
 	

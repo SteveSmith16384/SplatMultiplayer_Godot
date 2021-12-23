@@ -8,10 +8,15 @@ If you have any comments or suggestions for this game, please don't hesitate to 
 
 
 ## Instructions
-* Up to 4 players compete to get the highest score by collecting the grass and plums (I think they're plums?)
+* Up to 4 players compete in one of 3 game modes.
+* Get the highest score by collecting the grass and plums (I think they're plums?)
 * You must avoid walkng into the brick wall on the edge of the screen.
-* Whoever has the highest score at the end is the winner
-* If you hit the outer brick wall, your score will be halved!
+
+
+## Game Modes
+* Last Man Standing: Each player has one life.  Whoever has the highest score at the end wins.
+* Highest Score at the end:  All players have infinite lives.  Whoever has the highest score at the end is the winner.  If you get killed, your score is halved.
+* Original: Each player has 3 lives.  Whoever has the highest score at the end wins.
 
 
 ## Controls
