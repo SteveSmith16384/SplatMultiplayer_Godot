@@ -1,4 +1,3 @@
-Full screen!
 Start with IntroScene
 Check all debugging is turned off
 Inc version num

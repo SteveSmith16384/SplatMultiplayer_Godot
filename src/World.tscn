@@ -104,7 +104,7 @@ __meta__ = {
 margin_right = 96.0
 margin_bottom = 33.0
 custom_fonts/font = ExtResource( 8 )
-custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0.0627451, 1, 1 )
 text = "SCORE:0
 LIVES:3"
 
@@ -114,7 +114,7 @@ margin_top = 9.0
 margin_right = 222.0
 margin_bottom = 24.0
 custom_fonts/font = ExtResource( 8 )
-custom_colors/font_color = Color( 0.0313726, 0, 1, 1 )
+custom_colors/font_color = Color( 1, 0, 0.984314, 1 )
 text = "SCORE:0"
 
 [node name="Score_2" type="Label" parent="CanvasLayer/Scores/HBoxContainer"]
@@ -132,7 +132,7 @@ margin_top = 9.0
 margin_right = 474.0
 margin_bottom = 24.0
 custom_fonts/font = ExtResource( 8 )
-custom_colors/font_color = Color( 1, 0, 1, 1 )
+custom_colors/font_color = Color( 1, 0.211765, 0, 1 )
 text = "SCORE:0"
 
 [node name="TVShader" parent="CanvasLayer" instance=ExtResource( 11 )]

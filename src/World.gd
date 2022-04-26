@@ -63,6 +63,15 @@ func select_winner():
 				num_alive += 1
 		if num_alive > 1:
 			return
+	elif Globals.game_mode == Globals.GameMode.Original:
+		# Check players left alive
+		var num_alive = 0
+		for side in Globals.player_nums: 
+			var player = get_node("Player_" + str(side))
+			if player and player.alive:
+				num_alive += 1
+		if num_alive > 0:
+			return
 			
 	var winner = null
 	for side in Globals.player_nums: 

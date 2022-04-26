@@ -81,9 +81,11 @@ func die():
 			$RespawnTimer.start()
 		else:
 			lives = 0
+			main.select_winner()
 
 	else:
 		main.select_winner()
+		
 	main.update_score(self)
 	pass
 	
