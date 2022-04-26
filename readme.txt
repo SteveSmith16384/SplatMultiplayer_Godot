@@ -4,7 +4,7 @@ A multiplayer party version of the classic game Splat!, originally written by Ia
 
 Programmed by Stephen Smith (stephen.carlylesmith@googlemail.com).  Twitter: @stephencsmith
 
-If you have any comments or suggestions for this game, please don't hesitate to get in contact!
+Gameplay video: https://www.youtube.com/watch?v=h0j9mCXQdYw
 
 
 ## Instructions
@@ -24,10 +24,6 @@ If you have any comments or suggestions for this game, please don't hesitate to 
 * Should work with most controllers
 * F11 - Toggle full screen
 * Esc - quit
-
-
-## Running on Linux
-You will probably need to mark the program as an executable before Linux will allow you to run it.
 
 
 ## Running on a Mac
