@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Maze.tscn" type="PackedScene" id=1]
 [ext_resource path="res://MyCamera.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/sfx/sfx_coin_double1.wav" type="AudioStream" id=3]
+[ext_resource path="res://SplatBorder.tscn" type="PackedScene" id=4]
 [ext_resource path="res://World.gd" type="Script" id=5]
 [ext_resource path="res://assets/DefaultFont.tres" type="DynamicFont" id=8]
 [ext_resource path="res://SinglePlayerSprite.tscn" type="PackedScene" id=9]
@@ -103,8 +104,8 @@ __meta__ = {
 [node name="Score_0" type="Label" parent="CanvasLayer/Scores/HBoxContainer"]
 margin_right = 96.0
 margin_bottom = 33.0
-custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 0, 0.0627451, 1, 1 )
+custom_fonts/font = ExtResource( 8 )
 text = "SCORE:0
 LIVES:3"
 
@@ -113,8 +114,8 @@ margin_left = 126.0
 margin_top = 9.0
 margin_right = 222.0
 margin_bottom = 24.0
-custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 1, 0, 0.984314, 1 )
+custom_fonts/font = ExtResource( 8 )
 text = "SCORE:0"
 
 [node name="Score_2" type="Label" parent="CanvasLayer/Scores/HBoxContainer"]
@@ -122,8 +123,8 @@ margin_left = 252.0
 margin_top = 9.0
 margin_right = 348.0
 margin_bottom = 24.0
-custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 0.00784314, 1, 0, 1 )
+custom_fonts/font = ExtResource( 8 )
 text = "SCORE:0"
 
 [node name="Score_3" type="Label" parent="CanvasLayer/Scores/HBoxContainer"]
@@ -131,8 +132,8 @@ margin_left = 378.0
 margin_top = 9.0
 margin_right = 474.0
 margin_bottom = 24.0
-custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 1, 0.211765, 0, 1 )
+custom_fonts/font = ExtResource( 8 )
 text = "SCORE:0"
 
 [node name="TVShader" parent="CanvasLayer" instance=ExtResource( 11 )]
@@ -152,11 +153,14 @@ autoplay = true
 [node name="AudioStreamPlayer_Collected" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 
+[node name="SplatBorder" parent="." instance=ExtResource( 4 )]
+position = Vector2( 214, 2718 )
+
 [node name="MyCamera" parent="." instance=ExtResource( 2 )]
 position = Vector2( 214.137, 2718.85 )
 
 [node name="Timer_FPS" type="Timer" parent="."]
 
-[connection signal="end_of_level" from="MyCamera" to="." method="_on_MyCamera_end_of_level"]
-[connection signal="player_hit_edge" from="MyCamera" to="." method="_on_MyCamera_player_hit_edge"]
+[connection signal="end_of_level" from="SplatBorder" to="." method="_on_SplatBorder_end_of_level"]
+[connection signal="player_hit_edge" from="SplatBorder" to="." method="_on_SplatBorder_player_hit_edge"]
 [connection signal="timeout" from="Timer_FPS" to="." method="_on_Timer_FPS_timeout"]

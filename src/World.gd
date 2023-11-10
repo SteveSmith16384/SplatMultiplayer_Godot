@@ -6,7 +6,7 @@ var game_over = false
 var winner : int
 
 func _ready():
-	if Globals.SHOW_FPS:
+	if Globals.RELEASE_MODE == false and Globals.SHOW_FPS:
 		$Timer_FPS.start()
 	else:
 		$MyCamera/Label_FPS.visible = false
@@ -31,9 +31,9 @@ func _ready():
 
 
 func set_player_start_pos(player) -> bool:
-	if $MyCamera/CheckAreaEmpty.get_overlapping_bodies().size() == 0:
-		if $MyCamera/CheckAreaEmpty.get_overlapping_areas().size() <= 1:
-			var pos: Vector2 = $MyCamera.position
+	if $SplatBorder/CheckAreaEmpty.get_overlapping_bodies().size() == 0:
+		if $SplatBorder/CheckAreaEmpty.get_overlapping_areas().size() <= 1:
+			var pos: Vector2 = $SplatBorder.position
 			player.position = pos
 			return true;
 
@@ -41,7 +41,7 @@ func set_player_start_pos(player) -> bool:
 	pass
 	
 	
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("ui_cancel"):
 		game_over = true # Prevent firing any events
 		get_tree().change_scene("res://SelectPlayersScene.tscn")
@@ -116,7 +116,7 @@ func update_score(player):
 	pass
 	
 
-func key_collected(player : Player, key : Collectable):
+func key_collected(_player : Player, _key : Collectable):
 	$AudioStreamPlayer_Collected.play()
 	pass
 	
@@ -126,11 +126,11 @@ func _on_Timer_FPS_timeout():
 	pass
 
 
-func _on_MyCamera_player_hit_edge(player):
+func _on_SplatBorder_player_hit_edge(player):
 	player.die()
 	pass
 
 
-func _on_MyCamera_end_of_level():
-	# todo
+func _on_SplatBorder_end_of_level():
+	# Do anything?
 	pass

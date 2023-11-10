@@ -5,7 +5,7 @@ func _ready():
 	pass
 	
 	
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("ui_cancel"):
 		get_tree().change_scene("res://SelectGameMode.tscn")
 	if Input.is_action_just_pressed("full_screen"):
@@ -24,7 +24,7 @@ func _process(delta):
 		
 	if Input.is_action_just_pressed("start_game"):
 		if Globals.player_nums.size() > 0:
-			get_tree().change_scene("res://World.tscn")
+			var _unused = get_tree().change_scene("res://World.tscn")
 	pass
 	
 
