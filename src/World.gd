@@ -26,7 +26,7 @@ func _ready():
 		add_child(player)
 		var score = find_node("Score_" + str(side))
 		score.visible = true
-		pass		
+		pass
 	pass
 
 

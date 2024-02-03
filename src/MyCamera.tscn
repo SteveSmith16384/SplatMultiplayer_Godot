@@ -5,6 +5,7 @@
 
 [node name="MyCamera" type="Camera2D"]
 current = true
+zoom = Vector2( 8, 8 )
 script = ExtResource( 2 )
 
 [node name="Label_FPS" type="Label" parent="."]
