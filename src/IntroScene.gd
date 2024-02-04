@@ -2,6 +2,9 @@ extends Node2D
 
 func _ready():
 	$CanvasLayer/Label_Version.text = "VERSION " + Globals.VERSION
+	$Music.play()
+	
+	OS.window_fullscreen = Globals.RELEASE_MODE
 	pass
 	
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/graphics/splat2.png" type="Texture" id=1]
 [ext_resource path="res://IntroScene.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://assets/graphics/border.png" type="Texture" id=4]
 [ext_resource path="res://assets/DefaultFont_Small.tres" type="DynamicFont" id=5]
 [ext_resource path="res://assets/DefaultFont.tres" type="DynamicFont" id=6]
+[ext_resource path="res://assets/music/00 intro_0.ogg" type="AudioStream" id=7]
 [ext_resource path="res://TVShader.tscn" type="PackedScene" id=8]
 
 [node name="IntroScene" type="Node2D"]
@@ -111,6 +112,9 @@ autostart = true
 [node name="Timer_Logo" type="Timer" parent="."]
 wait_time = 0.5
 autostart = true
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
 
 [connection signal="timeout" from="Timer_Flash" to="." method="_on_Timer_Flash_timeout"]
 [connection signal="timeout" from="Timer_Logo" to="." method="_on_Timer_Logo_timeout"]

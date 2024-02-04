@@ -21,6 +21,7 @@ Gameplay video: https://www.youtube.com/watch?v=h0j9mCXQdYw
 
 ## Controls
 * Keyboard: Either "W, A, D and Space", or "Q, O, P and Space"
+* Z to toggle zoom out - see the whole map on one screen
 * Should work with most controllers
 * F11 - Toggle full screen
 * Esc - quit
@@ -34,6 +35,7 @@ Since the app is not signed for a Mac (I don't even have a Mac), it shows "Appli
 * Original game design and graphics by Ian Andrew - https://www.ianandrew.com
 * Developed using Godot and GIMP, and lots of other excellent free software
 * All sound effects taken from https://opengameart.org/content/512-sound-effects-8-bit-style
+* Music taken from https://opengameart.org/content/game-game
 * Thanks to Mikhail Sudakov for help on running the game on Macs.
 
 

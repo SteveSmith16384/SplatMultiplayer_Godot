@@ -1,6 +1,7 @@
 extends Node2D
 
 func _ready():
+	$Sfx/Select.play()
 	Globals.player_nums.clear()
 	pass
 	

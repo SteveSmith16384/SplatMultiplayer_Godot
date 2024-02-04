@@ -6,6 +6,8 @@ var game_over = false
 var winner : int
 
 func _ready():
+	$Music.play()
+	
 	if Globals.RELEASE_MODE == false and Globals.SHOW_FPS:
 		$Timer_FPS.start()
 	else:

@@ -28,7 +28,7 @@ _global_script_class_icons={
 
 config/name="Splat! Multiplayer"
 run/main_scene="res://IntroScene.tscn"
-boot_splash/image="res://assets/logo1.png"
+boot_splash/image="res://assets/cover.png"
 boot_splash/use_filter=false
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon.png"
@@ -42,7 +42,6 @@ Globals="*res://Globals.gd"
 window/size/width=512
 window/size/height=384
 window/size/resizable=false
-window/size/borderless=true
 window/size/test_width=1280
 window/size/test_height=720
 window/stretch/mode="2d"
