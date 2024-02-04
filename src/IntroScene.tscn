@@ -43,9 +43,6 @@ text = "Press F11 to toggle Full Screen
 "
 align = 1
 valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="CenterContainer2" type="CenterContainer" parent="CanvasLayer"]
 anchor_top = 1.0
