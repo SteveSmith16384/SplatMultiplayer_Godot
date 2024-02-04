@@ -2,6 +2,7 @@ extends Node2D
 
 func _ready():
 	$Sfx/Select.play()
+	$Music.play()
 	pass
 	
 	

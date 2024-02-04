@@ -2,7 +2,12 @@ extends Node2D
 
 func _ready():
 	$Sfx/Select.play()
+	$Music.play()
 	Globals.player_nums.clear()
+
+	for i in 4:
+		var human = find_node("SinglePlayerSprite_" + str(i))
+		human.visible = false
 	pass
 	
 	
